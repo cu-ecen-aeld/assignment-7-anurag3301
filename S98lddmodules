@@ -5,6 +5,9 @@ case "$1" in
         echo "LDD: Loading hello module"
         /etc/ldd/misc-modules/module_load hello /etc/ldd/misc-modules
 
+        echo "LDD: Loading faulty module"
+        /etc/ldd/misc-modules/module_load faulty /etc/ldd/misc-modules
+
         echo "LDD: Loading scull module"
         /etc/ldd/scull/scull_load /etc/ldd/scull
 
