@@ -3,15 +3,15 @@
 case "$1" in
     start)
         echo "LDD: Loading hello module"
-        /etc/ldd/misc-modules/module_load hello
+        /etc/ldd/misc-modules/module_load hello /etc/ldd/misc-modules
 
         echo "LDD: Loading scull module"
-        /etc/ldd/scull/scull_load
+        /etc/ldd/scull/scull_load /etc/ldd/scull
 
         ;;
     stop)
         echo "LDD: Unloading hello module"
-        /etc/ldd/misc-modules/module_unload hello
+        /etc/ldd/misc-modules/module_unload hello 
 
         echo "LDD: Unloading scull module"
         /etc/ldd/scull/scull_unload
