@@ -1,0 +1,35 @@
+#!/bin/sh
+
+case "$1" in
+    start)
+        echo "LDD: Loading hello module"
+        /etc/ldd/misc-modules/module_load hello
+
+        echo "LDD: Loading scull module"
+        /etc/ldd/scull/scull_load
+
+        ;;
+    stop)
+        echo "LDD: Unloading hello module"
+        /etc/ldd/misc-modules/module_unload hello
+
+        echo "LDD: Unloading scull module"
+        /etc/ldd/scull/scull_unload
+        ;;
+    restart)
+        echo "Restarting LDD"
+        $0 stop
+        sleep 1
+        $0 start
+        ;;
+    status)
+        cat /proc/devices | grep scull
+        cat /proc/devices | grep hello
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 1
+        ;;
+esac
+
+exit 0
